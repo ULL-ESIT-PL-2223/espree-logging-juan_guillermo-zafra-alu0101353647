@@ -1,5 +1,5 @@
 {
-    "name": "espree-logging-solution",
+    "name": "@alu0101353647/espree-logging-solution",
     "author": "Juan Guillermo Zafra Fernández <alu0101353647@ull.edu.es>",
     "description": "Adds logs to javascript code",
     "type": "module",

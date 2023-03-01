@@ -1,11 +1,7 @@
----
-descripcion: https://ull-esit-gradoii-pl.github.io/practicas/esprima-logging
-alumno: "Juan Guillermo Zafra Fernández Alu0101353647"
----
 
 # [Práctica Espree Logging](https://ull-esit-gradoii-pl.github.io/practicas/esprima-logging)
 
-### Procesadores de lenguajes 2021-2022
+### Procesadores de lenguajes 2022-2023
 
 #### Juan Guillermo Zafra Fernández Alu0101353647
 
@@ -141,3 +137,45 @@ once concatenated.
 Well, the tests run and go well: have a screenshot.
 
 ![they work!](screenshot/tests.png)
+
+## Mocking distinto
+
+Mocking has also changed to fit more stuff:
+
+```js
+  let oldLog = console.log; // mocking console.log
+  let result = [];
+  let resultantString;
+  console.log = function (...s) {
+      if (s.length > 1) {
+          let sString = s.join(' ');
+          s = [sString];
+      }
+      result.push(s);
+      resultantString = result.join('\n');
+  };
+  eval(output);
+```
+
+## NPM
+
+Using the commands:
+```bash
+ npm login
+```
+And setting all the information up (the notes' codes don't work at all),
+we set up the information in bash.
+
+```bash
+ npm publish --access=public
+```
+With that we publish it.
+
+![stuff](screenshot/npm-website.png)
+
+## Docs
+
+The command `npm run cov` will run the coverage and set the folder up for GitHub.
+
+
+## Continuous Integration
