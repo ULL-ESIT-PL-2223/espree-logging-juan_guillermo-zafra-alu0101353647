@@ -1,13 +1,15 @@
 {
     "name": "espree-logging-solution",
-    "author": "Casiano Rodriguez Leon <crguezl@ull.edu.es> (https://crguezl.github.io/)",
+    "author": "Juan Guillermo Zafra Fernández <alu0101353647@ull.edu.es>",
     "description": "Adds logs to javascript code",
     "type": "module",
     "bin": {
         "funlog": "bin/log.js"
     },
     "scripts": {
-        "fill": "your scripts here"
+        "test": "mocha test/test.mjs",
+        "cov": "nyc --reporter=lcov --reporter=text npm test; npm run fix_docs",
+        "fix_docs": "mv coverage docs; mv docs/coverage/lcov-report/* docs; rm -rf docs/coverage"
     },
     "dependencies": {
         "acorn": "^8.8.2",
@@ -15,10 +17,13 @@
         "escodegen": "^2.0.0",
         "espree": "^9.4.1",
         "estraverse": "^5.2.0",
-        "underscore": "^1.12.0"
+        "underscore": "^1.12.0",
+        "nyc": "^15.1.0"
     },
     "version": "0.3.0",
     "devDependencies": {
+        "@types/escodegen": "^0.0.7",
+        "@types/estraverse": "^5.1.2",
         "mocha": "^10.2.0"
     }
 }
