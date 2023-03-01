@@ -3,7 +3,7 @@
 
 ### Procesadores de lenguajes 2022-2023
 
-#### Juan Guillermo Zafra Fernández Alu0101353647
+#### Juan Guillermo Zafra Fernández alu0101353647
 
 ## Resumen de lo aprendido
 
@@ -13,8 +13,7 @@ is easy as a `node.body`, which is a really handy implementation.
 Using simple conditionals and variables you can build up a compilator and write down metaprograms, due to the 
 information stated above. 
 
-Last thing I've learned is the handy link to a Google application where the AST is shown for a piece of code
-is a powerful tool when we want to work with stuff like that. 
+NPM and all the other stuff not related to the program itself was rather annoying to set up, with a thousand things to move press and log in into. I'm a rather simple man.
 
 ## El ejecutable
 
@@ -55,8 +54,8 @@ Entering <anonymous function>() at line 3
 Below a piece of code with my doing:
 
 ```bash
-guillezafra@DESKTOP-1B0ARG7 /mnt/c/Users/pc/Documents/Año_3/Cuatrimestre 2/Procesadores de Lenguaje/P1/espree-logging-guillermo-zafra_fernandez-alu0101353647 (master)$ ./jslogging -o madeUp.js test/test3.js
-guillezafra@DESKTOP-1B0ARG7 /mnt/c/Users/pc/Documents/Año_3/Cuatrimestre 2/Procesadores de Lenguaje/P1/espree-logging-guillermo-zafra_fernandez-alu0101353647 (master)$ cat madeUp.js
+(route)$ ./jslogging -o madeUp.js test/test3.js
+(route)$ cat madeUp.js
 function foo(a, b, c) {
     console.log(`Entering foo(${ a }, ${ b }, ${ c }) at line 1`);
     let x = 'tutu';
@@ -177,5 +176,54 @@ With that we publish it.
 
 The command `npm run cov` will run the coverage and set the folder up for GitHub.
 
+At GitHub, the page will be posted [here](https://ull-esit-pl-2223.github.io/espree-logging-juan_guillermo-zafra-alu0101353647/).
+
+![stuff](screenshot/pages.png)
 
 ## Continuous Integration
+
+We simply set the very same `nodejs.yml` as the previous assignment:
+
+```yml
+
+# Write your workflow for CI here
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the $default-branch branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Set up node
+        uses: actions/setup-node@v2
+
+      # Runs a set of commands using the runners shell
+      - name: Install dependencies
+        run: npm i
+      
+      - name: Run tests
+        run: npm run test
+```
+And it looks like this in GitHub:
+
+![stuff](screenshot/continuous-integration.png)
+

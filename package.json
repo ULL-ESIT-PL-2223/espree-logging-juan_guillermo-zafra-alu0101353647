@@ -20,7 +20,7 @@
         "underscore": "^1.12.0",
         "nyc": "^15.1.0"
     },
-    "version": "0.3.0",
+    "version": "3.1.0",
     "devDependencies": {
         "@types/escodegen": "^0.0.7",
         "@types/estraverse": "^5.1.2",
